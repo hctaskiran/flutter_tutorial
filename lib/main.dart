@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_tutorial/101/container_sized_box.dart';
+import 'package:flutter_tutorial/101/scaffold_learn.dart';
 import 'package:flutter_tutorial/101/text_view.dart';
 
 void main() {
@@ -13,11 +16,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData.dark(
-
-        
-      ),
-      home: TextLearnView(),
+      theme: ThemeData.dark(),
+      debugShowCheckedModeBanner: false,
+      home: const ScaffoldLearnView(),
     );
   }
 }
