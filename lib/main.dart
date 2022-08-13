@@ -1,6 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_tutorial/101/app_bar_learn.dart';
+import 'package:flutter_tutorial/101/button_learn.dart';
+import 'package:flutter_tutorial/101/color_learn.dart';
 import 'package:flutter_tutorial/101/container_sized_box.dart';
+import 'package:flutter_tutorial/101/icon_learn.dart';
 import 'package:flutter_tutorial/101/scaffold_learn.dart';
 import 'package:flutter_tutorial/101/text_view.dart';
 
@@ -16,9 +21,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData.dark(),
+      theme: ThemeData.dark().copyWith(
+        appBarTheme: AppBarTheme(
+          centerTitle: true,
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          systemOverlayStyle: SystemUiOverlayStyle.light,
+        )
+      ),
       debugShowCheckedModeBanner: false,
-      home: const ScaffoldLearnView(),
+      home: ColorLearn(),
     );
   }
 }
