@@ -7,10 +7,12 @@ import 'package:flutter_tutorial/101/card_learn.dart';
 import 'package:flutter_tutorial/101/color_learn.dart';
 import 'package:flutter_tutorial/101/container_sized_box.dart';
 import 'package:flutter_tutorial/101/icon_learn.dart';
+import 'package:flutter_tutorial/101/image_learn.dart';
 import 'package:flutter_tutorial/101/padding_learn.dart';
 import 'package:flutter_tutorial/101/scaffold_learn.dart';
 import 'package:flutter_tutorial/101/stateless_learn.dart';
 import 'package:flutter_tutorial/101/text_view.dart';
+import 'package:flutter_tutorial/demos/note_demos_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
         )
       ),
       debugShowCheckedModeBanner: false,
-      home: CardLearn(),
+      home: NoteDemos(),
     );
   }
 }
