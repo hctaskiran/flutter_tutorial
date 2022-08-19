@@ -6,8 +6,10 @@ import 'package:flutter_tutorial/101/button_learn.dart';
 import 'package:flutter_tutorial/101/card_learn.dart';
 import 'package:flutter_tutorial/101/color_learn.dart';
 import 'package:flutter_tutorial/101/container_sized_box.dart';
+import 'package:flutter_tutorial/101/custom_widget_learn.dart';
 import 'package:flutter_tutorial/101/icon_learn.dart';
 import 'package:flutter_tutorial/101/image_learn.dart';
+import 'package:flutter_tutorial/101/indicator_learn.dart';
 import 'package:flutter_tutorial/101/padding_learn.dart';
 import 'package:flutter_tutorial/101/scaffold_learn.dart';
 import 'package:flutter_tutorial/101/stateless_learn.dart';
@@ -35,7 +37,7 @@ class MyApp extends StatelessWidget {
         )
       ),
       debugShowCheckedModeBanner: false,
-      home: NoteDemos(),
+      home: IndicatorLearn(),
     );
   }
 }

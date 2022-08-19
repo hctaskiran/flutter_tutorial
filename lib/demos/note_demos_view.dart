@@ -20,25 +20,45 @@ class NoteDemos extends StatelessWidget {
           children: [
             PngImage(name: ImageItems().appleBook),
             _titleWidget(title: _title),
-            Padding(
-              padding: PaddingItems.verticalPadding,
-              child: _subtitleWidget(title: _description*5),
-            ),
-
-            ElevatedButton(onPressed: () {
-
-            }, child: SizedBox(height: ButtonHeights.buttonNormalHeight,child: Center(child: Text(_createNote,
-            style: Theme.of(context).textTheme.headline5,
-            )))),
-
-            TextButton(onPressed: () {
-
-            }, child: Text(_importNotes)),
-            SizedBox(height: ButtonHeights.buttonNormalHeight)
-          ],
+            Padding(padding: PaddingItems.verticalPadding, child: _subtitleWidget(title: _description*5)),
+            _createButton(createNote: _createNote),
+            _importButton(importNotes: _importNotes),
+            SizedBox(height: ButtonHeights.buttonNormalHeight)],
           )
         ),
     );
+  }
+}
+
+class _importButton extends StatelessWidget {
+  const _importButton({
+    Key? key,
+    required String importNotes,
+  }) : _importNotes = importNotes, super(key: key);
+
+  final String _importNotes;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(onPressed: () {}, child: Text(_importNotes));
+  }
+}
+
+class _createButton extends StatelessWidget {
+  const _createButton({
+    Key? key,
+    required String createNote,
+  }) : _createNote = createNote, super(key: key);
+
+  final String _createNote;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(onPressed: () {
+
+    }, child: SizedBox(height: ButtonHeights.buttonNormalHeight,child: Center(child: Text(_createNote,
+    style: Theme.of(context).textTheme.headline5,
+    ))));
   }
 }
 
