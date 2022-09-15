@@ -5,6 +5,7 @@ import 'package:flutter_tutorial/101/app_bar_learn.dart';
 import 'package:flutter_tutorial/101/button_learn.dart';
 import 'package:flutter_tutorial/101/card_learn.dart';
 import 'package:flutter_tutorial/101/color_learn.dart';
+import 'package:flutter_tutorial/101/column_row_learn.dart';
 import 'package:flutter_tutorial/101/container_sized_box.dart';
 import 'package:flutter_tutorial/101/custom_widget_learn.dart';
 import 'package:flutter_tutorial/101/icon_learn.dart';
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
         )
       ),
       debugShowCheckedModeBanner: false,
-      home: const ListTileLearn(),
+      home: ColumnRowLearn(),
     );
   }
 }
