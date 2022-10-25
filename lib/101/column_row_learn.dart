@@ -20,10 +20,34 @@ class ColumnRowLearn extends StatelessWidget {
             ],
          )),
           const Spacer(flex: 2),
-          const Expanded(flex: 2, child: FlutterLogo()),
-          const Expanded(flex: 2, child: FlutterLogo()),
+          Expanded(
+            flex: 2, 
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text("a"),
+              Text("a1"),
+              Text("a2"),
+            ],)),
+          SizedBox(
+            height: ProjectContainerSizes.cardHeight,
+            child: Column(
+              children: const [
+                Expanded (child: Text("data")),
+                Expanded (child: Text("data")),
+                Expanded (child: Text("data")),
+                Spacer(),
+                Expanded (child: Text("data"))
+              ],
+            ),
+          )
         ],
       ),
     );
   }
+}
+
+class ProjectContainerSizes {
+  static const double cardHeight = 200;
 }
