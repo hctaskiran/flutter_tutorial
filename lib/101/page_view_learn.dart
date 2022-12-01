@@ -1,9 +1,10 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_tutorial/101/icon_learn.dart';
 import 'package:flutter_tutorial/101/image_learn.dart';
 import 'package:flutter_tutorial/101/stack_learn.dart';
+
+import 'package:flutter/material.dart';
+
 
 class PageViewLearn extends StatefulWidget {
   const PageViewLearn({super.key});
@@ -15,6 +16,14 @@ class PageViewLearn extends StatefulWidget {
 class _PageViewLearnState extends State<PageViewLearn> {
 
   final _pageController = PageController(viewportFraction: 0.7);
+  int _currentPageIndex = 0;
+
+  void _updatePageIndex(int index) {
+    setState(() {
+      _currentPageIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,8 +32,9 @@ class _PageViewLearnState extends State<PageViewLearn> {
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 20),
-            child: Text("data"),
+            child: Text(_currentPageIndex.toString()),
           ),
+          Spacer(),
           Spacer(),
           FloatingActionButton(
             onPressed: () {_pageController.previousPage(duration: _DurationUtility._durationLow, curve: Curves.slowMiddle);
@@ -42,6 +52,7 @@ class _PageViewLearnState extends State<PageViewLearn> {
       body: PageView(
         padEnds: false,
         controller: _pageController,
+        onPageChanged: _updatePageIndex,
         children: [
           const ImageLearn(),
           IconLearnView(),
