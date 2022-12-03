@@ -23,8 +23,16 @@ class _StatefullLifeCycleLearnState extends State<StatefullLifeCycleLearn> {
   void didUpdateWidget(covariant StatefullLifeCycleLearn oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.message != widget.message) {
-      print("ördek");
+      _message = widget.message;
+      _computeName();
+      setState(() {});
     }
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _message = " ";
   }
 
   //Mesaj tekse yanına tek, değilse çift yaz.
