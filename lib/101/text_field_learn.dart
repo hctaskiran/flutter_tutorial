@@ -8,6 +8,7 @@ class TextFieldLearn extends StatefulWidget {
 }
 
 class _TextFieldLearnState extends State<TextFieldLearn> {
+  final key = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,8 +16,10 @@ class _TextFieldLearnState extends State<TextFieldLearn> {
       body: TextField(
         maxLength: 20,
         buildCounter: (BuildContext context, {int? currentLength, bool? isFocused, int? maxLength}) {
-          return Container(color: Colors.green[100 * (currentLength ?? 0)], height: 10, width: 40,);
+          return _animatedContainer(currentLength);
         }, 
+        keyboardType: TextInputType.emailAddress,
+        autofillHints: const [AutofillHints.email],
         decoration: InputDecoration(
           prefixIcon: Icon(Icons.mail), 
           border: OutlineInputBorder(),
@@ -24,5 +27,15 @@ class _TextFieldLearnState extends State<TextFieldLearn> {
         ),
       ),
     );
+  }
+
+  AnimatedContainer _animatedContainer(int? currentLength) {
+    return AnimatedContainer(
+          key: UniqueKey(),
+          color: Colors.green, 
+          height: 10,
+          width: 10.0 * (currentLength ?? 0),
+          duration: Duration(seconds: 1),
+        );
   }
 }
