@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class TextFieldLearn extends StatefulWidget {
   const TextFieldLearn({super.key});
@@ -27,19 +28,12 @@ class _TextFieldLearnState extends State<TextFieldLearn> {
             keyboardType: TextInputType.emailAddress,
             autofillHints: const [AutofillHints.email],
             focusNode: focusNodeTextFieldOne,
-            decoration: InputDecoration(
-              prefixIcon: Icon(Icons.mail), 
-              border: OutlineInputBorder(),
-              labelText: "Mail",          
-            ),
+            textInputAction: TextInputAction.next,
+            decoration: _InputDecorator().emailInput,
           ),
           TextField(focusNode: focusNodeTextFieldTwo,
-          keyboardType: TextInputType.number,
-          decoration: const InputDecoration(
-            prefixIcon: Icon(Icons.key),
-            labelText: "Password",
-            border: OutlineInputBorder()
-          )
+          // keyboardType: TextInputType.number,
+          decoration: _InputDecorator().passwordInput,
           ),
         ],
       ),
@@ -55,4 +49,18 @@ class _TextFieldLearnState extends State<TextFieldLearn> {
           duration: Duration(seconds: 1),
         );
   }
+}
+
+class _InputDecorator {
+  final emailInput = InputDecoration(
+              prefixIcon: Icon(Icons.mail), 
+              border: OutlineInputBorder(),
+              labelText: "Mail",          
+            );
+
+  final passwordInput = const InputDecoration(
+            prefixIcon: Icon(Icons.key),
+            labelText: "Password",
+            border: OutlineInputBorder()
+          );
 }

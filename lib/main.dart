@@ -44,6 +44,12 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.transparent,
           elevation: 0,
           systemOverlayStyle: SystemUiOverlayStyle.light,
+          
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          filled: true,
+          border: OutlineInputBorder(),
+          labelStyle: TextStyle(color: Colors.white)
         )
       ),
       debugShowCheckedModeBanner: false,
