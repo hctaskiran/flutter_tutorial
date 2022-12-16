@@ -9,22 +9,39 @@ class TextFieldLearn extends StatefulWidget {
 
 class _TextFieldLearnState extends State<TextFieldLearn> {
   final key = GlobalKey();
+
+  FocusNode focusNodeTextFieldOne = FocusNode();
+  FocusNode focusNodeTextFieldTwo = FocusNode();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: TextField(
-        maxLength: 20,
-        buildCounter: (BuildContext context, {int? currentLength, bool? isFocused, int? maxLength}) {
-          return _animatedContainer(currentLength);
-        }, 
-        keyboardType: TextInputType.emailAddress,
-        autofillHints: const [AutofillHints.email],
-        decoration: InputDecoration(
-          prefixIcon: Icon(Icons.mail), 
-          border: OutlineInputBorder(),
-          labelText: "Mail",          
-        ),
+      body: Column(
+        children: [
+          TextField(
+            maxLength: 20,
+            buildCounter: (BuildContext context, {int? currentLength, bool? isFocused, int? maxLength}) {
+              return _animatedContainer(currentLength);
+            }, 
+            keyboardType: TextInputType.emailAddress,
+            autofillHints: const [AutofillHints.email],
+            focusNode: focusNodeTextFieldOne,
+            decoration: InputDecoration(
+              prefixIcon: Icon(Icons.mail), 
+              border: OutlineInputBorder(),
+              labelText: "Mail",          
+            ),
+          ),
+          TextField(focusNode: focusNodeTextFieldTwo,
+          keyboardType: TextInputType.number,
+          decoration: const InputDecoration(
+            prefixIcon: Icon(Icons.key),
+            labelText: "Password",
+            border: OutlineInputBorder()
+          )
+          ),
+        ],
       ),
     );
   }
