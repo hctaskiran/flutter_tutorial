@@ -25,12 +25,16 @@ void changeBackgroundColor (Color color) {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: _backgroundColor,
       bottomNavigationBar: BottomNavigationBar(
         onTap: (value) {
-          if (value == 0) {}
-          else if (value ==1) {}
-          else {}
+          if (value == _MyColors.red.index) {
+            changeBackgroundColor(Colors.red);
+          } else if (value == _MyColors.yellow.index) {
+            changeBackgroundColor(Colors.yellow);
+          } else if (value == _MyColors.blue.index) {
+            changeBackgroundColor(Colors.blue);
+          }
           },
         items: const [
         BottomNavigationBarItem(icon: _ColorContainer(color: Colors.red), label: "Red"),
