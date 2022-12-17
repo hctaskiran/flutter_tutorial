@@ -22,6 +22,7 @@ import 'package:flutter_tutorial/101/stateless_learn.dart';
 import 'package:flutter_tutorial/101/text_field_learn.dart';
 import 'package:flutter_tutorial/101/text_view.dart';
 import 'package:flutter_tutorial/demos/color_demos_view.dart';
+import 'package:flutter_tutorial/demos/color_life_cycle_view.dart';
 import 'package:flutter_tutorial/demos/note_demos_view.dart';
 import 'package:flutter_tutorial/demos/stack_demo_view.dart';
 
@@ -54,7 +55,7 @@ class MyApp extends StatelessWidget {
         )
       ),
       debugShowCheckedModeBanner: false,
-      home: ColorDemos()
+      home: ColorLifeCycleView()
     );
   }
 }

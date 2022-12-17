@@ -7,8 +7,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 
 class ColorDemos extends StatefulWidget {
-  const ColorDemos({super.key});
-
+  const ColorDemos({super.key, required this.initialColor});
+  final Color initialColor;
   @override
   State<ColorDemos> createState() => _ColorDemosState();
 }
@@ -16,6 +16,17 @@ class ColorDemos extends StatefulWidget {
 class _ColorDemosState extends State<ColorDemos> {
 
 Color? _backgroundColor= Colors.transparent;
+
+@override
+  void didUpdateWidget(covariant ColorDemos oldWidget) {
+    // TODO: implement didUpdateWidget
+    super.didUpdateWidget(oldWidget);
+
+    if (oldWidget.initialColor != widget.initialColor && widget.initialColor != null) {
+      changeBackgroundColor(widget.initialColor);
+    }
+  }
+
 void changeBackgroundColor (Color color) {
   setState(() {
     _backgroundColor = color;
@@ -27,15 +38,7 @@ void changeBackgroundColor (Color color) {
     return Scaffold(
       backgroundColor: _backgroundColor,
       bottomNavigationBar: BottomNavigationBar(
-        onTap: (value) {
-          if (value == _MyColors.red.index) {
-            changeBackgroundColor(Colors.red);
-          } else if (value == _MyColors.yellow.index) {
-            changeBackgroundColor(Colors.yellow);
-          } else if (value == _MyColors.blue.index) {
-            changeBackgroundColor(Colors.blue);
-          }
-          },
+        onTap: _ColorOnTap,
         items: const [
         BottomNavigationBarItem(icon: _ColorContainer(color: Colors.red), label: "Red"),
         BottomNavigationBarItem(icon: _ColorContainer(color: Colors.yellow), label: "Yellow"),
@@ -43,6 +46,15 @@ void changeBackgroundColor (Color color) {
       ]),
     );
   }
+
+  void _ColorOnTap(int value) {
+        if (value == _MyColors.red.index) {
+          changeBackgroundColor(Colors.red);
+        } else if (value == _MyColors.yellow.index) {
+          changeBackgroundColor(Colors.yellow);
+        } else if (value == _MyColors.blue.index) {
+          changeBackgroundColor(Colors.blue);
+        }}
 }
 
 enum _MyColors {red, yellow, blue,}
