@@ -8,6 +8,13 @@ class TextFieldLearn extends StatefulWidget {
   State<TextFieldLearn> createState() => _TextFieldLearnState();
 }
 
+@override
+void initState() {
+  initState();
+  
+  _isObscured: true;
+}
+
 class _TextFieldLearnState extends State<TextFieldLearn> {
   final key = GlobalKey();
 
@@ -29,11 +36,12 @@ class _TextFieldLearnState extends State<TextFieldLearn> {
             autofillHints: const [AutofillHints.email],
             focusNode: focusNodeTextFieldOne,
             textInputAction: TextInputAction.next,
-            decoration: _InputDecorator().emailInput,
+            decoration: _InputDecorator()._emailInput,
           ),
           TextField(focusNode: focusNodeTextFieldTwo,
           // keyboardType: TextInputType.number,
-          decoration: _InputDecorator().passwordInput,
+          decoration: _InputDecorator()._passwordInput,
+          obscureText: true,
           ),
         ],
       ),
@@ -51,16 +59,23 @@ class _TextFieldLearnState extends State<TextFieldLearn> {
   }
 }
 
+
+// CLASS // CLASS //
+
 class _InputDecorator {
-  final emailInput = InputDecoration(
+  final _emailInput = InputDecoration(
               prefixIcon: Icon(Icons.mail), 
               border: OutlineInputBorder(),
-              labelText: "Mail",          
+              labelText: "Mail",
+              hintText: "Enter Your E-Mail"
+              
             );
 
-  final passwordInput = const InputDecoration(
+  final _passwordInput = const InputDecoration(
             prefixIcon: Icon(Icons.key),
             labelText: "Password",
+            hintText: "Enter Your Password",
             border: OutlineInputBorder()
+            
           );
 }
