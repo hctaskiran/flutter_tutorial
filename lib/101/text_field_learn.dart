@@ -8,12 +8,7 @@ class TextFieldLearn extends StatefulWidget {
   State<TextFieldLearn> createState() => _TextFieldLearnState();
 }
 
-@override
-void initState() {
-  initState();
-  
-  _isObscured: true;
-}
+var _isObscured = true;
 
 class _TextFieldLearnState extends State<TextFieldLearn> {
   final key = GlobalKey();
@@ -75,7 +70,5 @@ class _InputDecorator {
             prefixIcon: Icon(Icons.key),
             labelText: "Password",
             hintText: "Enter Your Password",
-            border: OutlineInputBorder()
-            
-          );
+            border: OutlineInputBorder());
 }
