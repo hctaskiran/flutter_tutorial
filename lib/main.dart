@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
         )
       ),
       debugShowCheckedModeBanner: false,
-      home: ListViewLearn()
+      home: const ListViewLearn()
     );
   }
 }
