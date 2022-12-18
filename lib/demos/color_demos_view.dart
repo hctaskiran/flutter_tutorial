@@ -2,6 +2,8 @@
 // Bu ekranda 3 button ve bunlara basınca renk değişecek
 // Seçili olan button 'Selected Icon' olsun
 
+import 'dart:developer';
+
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
@@ -15,14 +17,13 @@ class ColorDemos extends StatefulWidget {
 
 class _ColorDemosState extends State<ColorDemos> {
 
-Color? _backgroundColor= Colors.transparent;
+Color? _backgroundColor;
 
 @override
   void didUpdateWidget(covariant ColorDemos oldWidget) {
-    // TODO: implement didUpdateWidget
+    
     super.didUpdateWidget(oldWidget);
-
-    if (oldWidget.initialColor != widget.initialColor && widget.initialColor != null) {
+    if (widget.initialColor != _backgroundColor && widget.initialColor != null) {
       changeBackgroundColor(widget.initialColor);
     }
   }

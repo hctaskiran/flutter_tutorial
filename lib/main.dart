@@ -13,6 +13,7 @@ import 'package:flutter_tutorial/101/image_learn.dart';
 import 'package:flutter_tutorial/101/indicator_learn.dart';
 import 'package:flutter_tutorial/101/life_cycle_learn.dart';
 import 'package:flutter_tutorial/101/list_tile_learn.dart';
+import 'package:flutter_tutorial/101/list_view_learn.dart';
 import 'package:flutter_tutorial/101/padding_learn.dart';
 import 'package:flutter_tutorial/101/page_view_learn.dart';
 import 'package:flutter_tutorial/101/scaffold_learn.dart';
@@ -55,7 +56,7 @@ class MyApp extends StatelessWidget {
         )
       ),
       debugShowCheckedModeBanner: false,
-      home: ColorLifeCycleView()
+      home: ListViewLearn()
     );
   }
 }
