@@ -8,16 +8,12 @@ class MyCollectionsDemo extends StatefulWidget {
 }
 
 class _MyCollectionsDemoState extends State<MyCollectionsDemo> {
-  late List<CollectionModel> _items;
+  late final List<CollectionModel> _items;
 
   @override
   void initState() {
     super.initState();
-    _items = [
-      CollectionModel(imagePath: "assets/png/emo_demo_collection.png", price: 3.5, title: "Emo Göz"),
-      CollectionModel(imagePath: "assets/png/emo_demo_collection.png", price: 3.5, title: "Emo Göz v2"),
-      CollectionModel(imagePath: "assets/png/emo_demo_collection.png", price: 3.5, title: "Emo Göz v3"),
-    ];
+    _items = CollectionItems()._items;
   }
 
   @override
@@ -25,33 +21,58 @@ class _MyCollectionsDemoState extends State<MyCollectionsDemo> {
     return Scaffold(
       body: ListView.builder(
         itemCount: _items.length,
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: PaddingUtility().paddingHorizon,
         itemBuilder:(context, index) {
-          return Card(
-            margin: const EdgeInsets.only(bottom: 20),
-            child: SizedBox(
-              height: 300,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    Expanded(child: Container(color: Colors.red ,child: Image.asset(_items[index].imagePath, fit: BoxFit.fill,)))
-                    ,
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                        Text(_items[index].title),
-                        Text("${_items[index].price} eth"),
-                      ],),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          );
+          return _CategoryCard(model: _items[index]);
       },),
+    );
+  }
+}
+
+
+
+
+class _CategoryCard extends StatelessWidget {
+  const _CategoryCard({
+    Key? key,
+    required CollectionModel model,
+  }) : _model = model, super(key: key);
+
+  final CollectionModel _model;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: PaddingUtility().paddingBottom,
+      child: SizedBox(
+        height: 300,
+        child: Padding(
+          padding: PaddingUtility().paddingAll,
+          child: Column(
+            children: [
+              Image.asset(
+                _model.imagePath, 
+                fit: BoxFit.fill,
+                height: 230,
+                width: 300,
+                ),
+                
+              Padding(
+                padding: PaddingUtility().paddingTop,
+                child: Padding(
+                  padding: PaddingUtility().paddingTop,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                    Text(_model.title),
+                    Text("${_model.price} eth"),
+                  ],),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
@@ -62,4 +83,29 @@ class CollectionModel {
   final double price;
 
   CollectionModel({required this.imagePath, required this.price, required this.title});
+}
+
+class CollectionItems {
+  late final List<CollectionModel> _items;
+
+  CollectionItems(){
+    _items = [
+      CollectionModel(imagePath: ProjectItems.imageCollection, price: 3.5, title: "Emo Göz"),
+      CollectionModel(imagePath: ProjectItems.imageCollection, price: 3.5, title: "Emo Göz v2"),
+      CollectionModel(imagePath: ProjectItems.imageCollection, price: 3.5, title: "Emo Göz v3"),
+    ];
+  }
+}
+
+class ProjectItems {
+  static const imageCollection = "assets/png/emo_demo_collection.png";
+}
+
+class PaddingUtility {
+  
+  final paddingTop = const EdgeInsets.only(top: 10);
+  final paddingBottom = const EdgeInsets.only(bottom: 20);
+  final paddingAll = const EdgeInsets.all(15);
+  final paddingHorizon = const EdgeInsets.symmetric(horizontal: 20);
+
 }
