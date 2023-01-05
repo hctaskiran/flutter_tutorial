@@ -11,9 +11,9 @@ class NavigationLearn extends StatefulWidget {
 
 class _NavigationLearnState extends State<NavigationLearn> with NavigatorManager{
 
-  void addSelected(int index) {
+  void addSelected(int index, bool isAdd) {
     setState(() {
-      selectedItems.add(index);
+      isAdd ? selectedItems.add(index) : selectedItems.remove(index);
     });
   }
 
@@ -25,9 +25,11 @@ class _NavigationLearnState extends State<NavigationLearn> with NavigatorManager
         itemBuilder:(context, index) {
         return TextButton(
           onPressed:() async {
-            final response = await navigateToWidgetNormal<bool>(context, NavigationDetailLearn());
-            if (response == true) {
-            addSelected(index);
+            final response = await navigateToWidgetNormal<bool>(context, NavigationDetailLearn(
+              isOkay: selectedItems.contains(index)
+            ));
+            if (response is bool) {
+            addSelected(index, response);
           }
           },
           child: Padding(
@@ -43,9 +45,9 @@ class _NavigationLearnState extends State<NavigationLearn> with NavigatorManager
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.navigation_rounded),
         onPressed: () async{
-          final response = await navigateToWidgetNormal<bool>(context, NavigationDetailLearn());
-
+          final response = await navigateToWidgetNormal<bool>(context, NavigationDetailLearn(),
           
+          );
         }
       ),
 
