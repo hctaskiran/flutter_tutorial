@@ -24,8 +24,10 @@ import 'package:flutter_tutorial/101/stateful_learn.dart';
 import 'package:flutter_tutorial/101/stateless_learn.dart';
 import 'package:flutter_tutorial/101/text_field_learn.dart';
 import 'package:flutter_tutorial/101/text_view.dart';
+import 'package:flutter_tutorial/202/tab_learn.dart';
 import 'package:flutter_tutorial/demos/color_demos_view.dart';
 import 'package:flutter_tutorial/demos/color_life_cycle_view.dart';
+import 'package:flutter_tutorial/demos/login_system_demo.dart';
 import 'package:flutter_tutorial/demos/search_bar_demo.dart';
 import 'package:flutter_tutorial/demos/my_collections_demo.dart';
 import 'package:flutter_tutorial/demos/note_demos_view.dart';
@@ -44,6 +46,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData.dark().copyWith(
+
+        tabBarTheme: TabBarTheme(
+          unselectedLabelColor: Colors.white,
+          labelColor: Colors.purple[300],
+          indicatorSize: TabBarIndicatorSize.tab
+        ),
+
+        bottomAppBarTheme: BottomAppBarTheme(
+          shape: CircularNotchedRectangle()
+        ),
+
         listTileTheme: const ListTileThemeData(contentPadding: EdgeInsets.zero),
         progressIndicatorTheme: const ProgressIndicatorThemeData(color: Colors.white),
         appBarTheme: const AppBarTheme(
@@ -60,7 +73,7 @@ class MyApp extends StatelessWidget {
         )
       ),
       debugShowCheckedModeBanner: false,
-      home: const SearchBarDemo()
+      home: const TabLearn()
     );
   }
 }
