@@ -49,13 +49,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
 
         tabBarTheme: TabBarTheme(
-          unselectedLabelColor: Colors.white,
-          labelColor: Colors.purple[300],
+          unselectedLabelColor: Colors.green,
+          labelColor: Colors.pink.shade300,
+          indicatorColor: Colors.white,
           indicatorSize: TabBarIndicatorSize.tab
         ),
+        
 
         bottomAppBarTheme: BottomAppBarTheme(
-          shape: CircularNotchedRectangle()
+          shape: CircularNotchedRectangle(),
+          
         ),
 
         listTileTheme: const ListTileThemeData(contentPadding: EdgeInsets.zero),
