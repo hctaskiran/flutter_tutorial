@@ -61,6 +61,4 @@ class _TabLearnState extends State<TabLearn> with TickerProviderStateMixin{
 
 enum _MyTabViews { home, settings, profile, favorite }
 
-extension _MyTabViewExtension on _MyTabViews {
-
-}
+extension _MyTabViewExtension on _MyTabViews {}
