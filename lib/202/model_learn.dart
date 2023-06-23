@@ -33,3 +33,12 @@ class PostModel4 {
 }
 
 
+class PostModel5 {
+  final int? userID;
+  final int? id;
+  final String? title;
+  final String? body;
+
+  PostModel5(this.userID, this.id, this.title, this.body);
+}
+
