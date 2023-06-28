@@ -1,3 +1,4 @@
+
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -23,50 +24,12 @@ class _ServiceLearnState extends State<ServiceLearn> {
   void initState() { 
     super.initState();
     _networkManager = Dio(BaseOptions(baseUrl: _baseUrl));
-    name = "hako";
-
-    fetchPostItems();
-    
   }
 
   void _changeLoading() {
     setState(() {
       _isLoading = !_isLoading;
     });
-  }
-
-  Future<void> fetchPostItems() async {
-    _changeLoading();
-    final response = await Dio().get("/posts");
-
-    if (response.statusCode == HttpStatus.ok) {
-      
-      final _datas = response.data;
-      
-      if (_datas is List) {
-        setState(() {
-          _items = _datas.map((e) => PostModel.fromJson(e)).toList();
-        });
-      }
-    }
-    _changeLoading();
-  }
-
-  Future<void> fetchPostItemsAdvance() async {
-    _changeLoading();
-    final response = await Dio().get('https://jsonplaceholder.typicode.com/posts');
-
-    if (response.statusCode == HttpStatus.ok) {
-      
-      final _datas = response.data;
-      
-      if (_datas is List) {
-        setState(() {
-          _items = _datas.map((e) => PostModel.fromJson(e)).toList();
-        });
-      }
-    }
-    _changeLoading();
   }
 
   @override
