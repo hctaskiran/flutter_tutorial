@@ -25,6 +25,7 @@ import 'package:flutter_tutorial/101/stateless_learn.dart';
 import 'package:flutter_tutorial/101/text_field_learn.dart';
 import 'package:flutter_tutorial/101/text_view.dart';
 import 'package:flutter_tutorial/202/model_learn_view.dart';
+import 'package:flutter_tutorial/202/service/package_learn.dart';
 import 'package:flutter_tutorial/202/service/service_learn_view.dart';
 import 'package:flutter_tutorial/202/tab_learn.dart';
 import 'package:flutter_tutorial/demos/color_demos_view.dart';
@@ -79,7 +80,7 @@ class MyApp extends StatelessWidget {
         )
       ),
       debugShowCheckedModeBanner: false,
-      home: ServiceLearn()
+      home: PackageLearnView()
     );
   }
 }
