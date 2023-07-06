@@ -28,6 +28,7 @@ import 'package:flutter_tutorial/202/model_learn_view.dart';
 import 'package:flutter_tutorial/202/service/package_learn.dart';
 import 'package:flutter_tutorial/202/service/service_learn_view.dart';
 import 'package:flutter_tutorial/202/tab_learn.dart';
+import 'package:flutter_tutorial/202/theme/light_theme.dart';
 import 'package:flutter_tutorial/demos/color_demos_view.dart';
 import 'package:flutter_tutorial/demos/color_life_cycle_view.dart';
 import 'package:flutter_tutorial/demos/login_system_demo.dart';
@@ -49,36 +50,38 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData.dark().copyWith(
+      theme: LightTheme().theme,
+      
+      // theme: ThemeData.dark().copyWith(
 
-        tabBarTheme: TabBarTheme(
-          unselectedLabelColor: Colors.green,
-          labelColor: Colors.pink.shade300,
-          indicatorColor: Colors.white,
-          indicatorSize: TabBarIndicatorSize.tab
-        ),
+      //   tabBarTheme: TabBarTheme(
+      //     unselectedLabelColor: Colors.green,
+      //     labelColor: Colors.pink.shade300,
+      //     indicatorColor: Colors.white,
+      //     indicatorSize: TabBarIndicatorSize.tab
+      //   ),
         
 
-        bottomAppBarTheme: BottomAppBarTheme(
-          shape: CircularNotchedRectangle(),
+      //   bottomAppBarTheme: BottomAppBarTheme(
+      //     shape: CircularNotchedRectangle(),
           
-        ),
+      //   ),
 
-        listTileTheme: const ListTileThemeData(contentPadding: EdgeInsets.zero),
-        progressIndicatorTheme: const ProgressIndicatorThemeData(color: Colors.white),
-        appBarTheme: const AppBarTheme(
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          systemOverlayStyle: SystemUiOverlayStyle.light,
+      //   listTileTheme: const ListTileThemeData(contentPadding: EdgeInsets.zero),
+      //   progressIndicatorTheme: const ProgressIndicatorThemeData(color: Colors.white),
+      //   appBarTheme: const AppBarTheme(
+      //     centerTitle: true,
+      //     backgroundColor: Colors.transparent,
+      //     elevation: 0,
+      //     systemOverlayStyle: SystemUiOverlayStyle.light,
           
-        ),
-        inputDecorationTheme: InputDecorationTheme(
-          filled: true,
-          border: OutlineInputBorder(),
-          labelStyle: TextStyle(color: Colors.white)
-        )
-      ),
+      //   ),
+      //   inputDecorationTheme: InputDecorationTheme(
+      //     filled: true,
+      //     border: OutlineInputBorder(),
+      //     labelStyle: TextStyle(color: Colors.white)
+      //   )
+      // ),
       debugShowCheckedModeBanner: false,
       home: PackageLearnView()
     );
