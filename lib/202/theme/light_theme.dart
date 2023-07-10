@@ -10,7 +10,7 @@ class LightTheme {
       buttonTheme: ButtonThemeData(colorScheme: ColorScheme.light(onPrimary: Colors.purple, onSecondary: _lightColor.blueMana)),
       floatingActionButtonTheme: FloatingActionButtonThemeData(backgroundColor: Colors.green),
       textTheme: ThemeData.light().textTheme.copyWith(
-        subtitle1: const TextStyle(fontSize: 14, color: Color.fromARGB(255, 203, 159, 25)),
+        subtitle1: const TextStyle(fontSize: 14, color: Colors.purple),
       )  
   );
 }
