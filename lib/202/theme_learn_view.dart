@@ -15,7 +15,7 @@ class _ThemeLearnViewState extends State<ThemeLearnView> {
       appBar: AppBar(),
       body: Column(
         children: [
-          const PasswordTextField(),
+          const PasswordTextField(controller: null,),
           CheckboxListTile(value: true, onChanged: (val) {},
           title: const Text("Select"),
           ),
