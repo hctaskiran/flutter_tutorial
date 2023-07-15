@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 
 class AnimatedLearnView extends StatefulWidget {
@@ -10,15 +8,17 @@ class AnimatedLearnView extends StatefulWidget {
 }
 
 class _AnimatedLearnViewState extends State<AnimatedLearnView> with TickerProviderStateMixin{
-  late AnimationController controller;
   bool _isVisible = false;
   bool _isOpacity = false;
+
+  late AnimationController controller;
+
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    controller = AnimationController(vsync: this);
+    controller = AnimationController(vsync: this, duration: _DurationItems.durationLow);
   }
 
   void _changeVisible() {
@@ -56,11 +56,19 @@ class _AnimatedLearnViewState extends State<AnimatedLearnView> with TickerProvid
             }, 
             icon: Icon(Icons.precision_manufacturing_rounded)),
           ),
-          AnimatedDefaultTextStyle(child: const Text('a'), 
+          AnimatedDefaultTextStyle(child: const Text('data'), 
           style: const TextStyle(fontSize: 14), 
           duration: _DurationItems.durationLow),
 
-          AnimatedIcon(icon: AnimatedIcons.menu_close, progress: controller)
+          AnimatedIcon(icon: AnimatedIcons.menu_close, progress: controller),
+
+          AnimatedContainer(
+            duration: _DurationItems.durationLow,
+            height: MediaQuery.of(context).size.width * 0.2,
+            width: MediaQuery.of(context).size.width * 0.2,
+            color: Colors.blue,
+            margin: const EdgeInsets.all(10),
+            ),
         ],
       ),
     );
