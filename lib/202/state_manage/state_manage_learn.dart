@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tutorial/202/state_manage/state_learn_view_model.dart';
 
 class StateManageLearnView extends StatefulWidget {
   const StateManageLearnView({super.key});
@@ -7,33 +8,17 @@ class StateManageLearnView extends StatefulWidget {
   State<StateManageLearnView> createState() => _StateManageLearnViewState();
 }
 
-class _StateManageLearnViewState extends State<StateManageLearnView> {
-
-  bool _isVisible = false;
-  bool _isOpacity = false;
+class _StateManageLearnViewState extends StateLearnViewModel {
   
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
+  
 
-  void _changeVisible() {
-    setState(() {
-      _isVisible = !_isVisible;
-    });
-  }
-
-  void _changeOpacity() {
-    setState(() {
-      _isOpacity = !_isOpacity;
-    });
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed:() {changeVisible();}),
       appBar: AppBar(
-        backgroundColor: _isOpacity ? Colors.red : Colors.green,
-        shadowColor: _isVisible ? Colors.amber : Colors.grey,
+        backgroundColor: isOpacity ? Colors.red : Colors.green,
+        shadowColor: isVisible ? Colors.amber : Colors.grey,
       ),
       
     );
