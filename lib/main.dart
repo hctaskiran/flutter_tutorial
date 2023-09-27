@@ -33,6 +33,7 @@ import 'package:flutter_tutorial/202/oop_learn_view.dart';
 import 'package:flutter_tutorial/202/service/package_learn.dart';
 import 'package:flutter_tutorial/202/service/service_learn_view.dart';
 import 'package:flutter_tutorial/202/tab_learn.dart';
+import 'package:flutter_tutorial/202/theme/alert_learn.dart';
 import 'package:flutter_tutorial/202/theme/animated_learn.dart';
 import 'package:flutter_tutorial/202/theme/light_theme.dart';
 import 'package:flutter_tutorial/202/theme/sheet_learn.dart';
@@ -89,7 +90,7 @@ class MyApp extends StatelessWidget {
       //   )
       // ),
       debugShowCheckedModeBanner: false,
-      home: SheetLearn()
+      home: AlertLearn()
     );
   }
 }
